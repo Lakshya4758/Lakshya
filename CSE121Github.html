@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Academy - Quality Education for All</title>
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #0ea5e9;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --dark-text: #1f2937;
+            --light-text: #f3f4f6;
+            --gray-bg: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #ffffff;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            display: none;
+            min-height: calc(100vh - 80px);
+            padding: 60px 20px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== HOME SECTION ===== */
+        #home {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d97706;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* ===== COURSES SECTION ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-content p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .course-duration {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .course-duration span {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .enrollment-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .enrollment-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            background: var(--gray-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: white;
+            box-shadow: var(--shadow-sm);
+            border-left-color: var(--primary-color);
+        }
+
+        .feature-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-box p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TEACHERS SECTION ===== */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .teacher-avatar {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .teacher-info {
+            padding: 1.5rem;
+        }
+
+        .teacher-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .teacher-info p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .teacher-bio {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== EVENTS SECTION ===== */
+        .events-container {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .event-item {
+            display: flex;
+            gap: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateX(5px);
+        }
+
+        .event-date {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 100px;
+            font-weight: bold;
+        }
+
+        .event-date-day {
+            font-size: 2rem;
+        }
+
+        .event-date-month {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .event-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-details p {
+            color: #6b7280;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details p {
+            color: #6b7280;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            background: var(--gray-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: var(--danger-color);
+            background-color: #fef2f2;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideInDown 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            padding-left: 2rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: #6b7280;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .search-input {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            width: 200px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 250px;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background: var(--gray-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow);
+            animation: slideInDown 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-color);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--danger-color);
+        }
+
+        /* ===== LOADING SPINNER ===== */
+        .spinner {
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== ALERT MESSAGES ===== */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideInDown 0.5s ease;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid var(--danger-color);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav a {
+                padding: 1rem;
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.8rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .search-container {
+                display: none;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            .event-item {
+                flex-direction: column;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-header h2::after {
+                width: 60px;
+            }
+
+            .courses-grid,
+            .teachers-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            section {
+                padding: 30px 10px;
+            }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">📚</span>
+                <span>Modern Academy</span>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                    <li><a href="#about" onclick="showSection('about')">About</a></li>
+                    <li><a href="#courses" onclick="showSection('courses')">Courses</a></li>
+                    <li><a href="#teachers" onclick="showSection('teachers')">Teachers</a></li>
+                    <li><a href="#events" onclick="showSection('events')">Events</a></li>
+                    <li><a href="#faq" onclick="showSection('faq')">FAQ</a></li>
+                    <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+                <button class="search-btn" onclick="performSearch()">🔍</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="active">
+        <div class="hero-content">
+            <h1>Welcome to Modern Academy</h1>
+            <p>Empowering Students with Quality Education and Digital Learning</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="enrollNow()">Enroll Now</button>
+                <button class="btn btn-secondary" onclick="showSection('courses')">Explore Courses</button>
+            </div>
+            <div style="margin-top: 3rem; font-size: 3rem;">
+                👨‍🎓 📖 💻 🚀 🌟
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Discover our mission and vision for excellence in education</p>
+            </div>
+
+            <div class="about-container">
+                <div class="about-image">🏫</div>
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>At Modern Academy, we believe that quality education is the foundation of success. Our mission is to provide world-class education that empowers students to become critical thinkers, creative problem-solvers, and responsible global citizens.</p>
+                    <p>We combine traditional teaching methods with cutting-edge digital technology to create an engaging and interactive learning environment.</p>
+                    <h3 style="margin-top: 1.5rem;">Why Choose Us?</h3>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>✓ Experienced and dedicated teachers</li>
+                        <li>✓ State-of-the-art learning facilities</li>
+                        <li>✓ Personalized learning approach</li>
+                        <li>✓ Industry-relevant curriculum</li>
+                        <li>✓ 24/7 online support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Active Students</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Expert Teachers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Courses Available</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">Student Rating</div>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 3rem;">
+                <h2>Our Features</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h4>📱 Mobile Learning</h4>
+                    <p>Learn anytime, anywhere with our mobile-friendly platform. Access all course materials on your smartphone or tablet.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>🎥 Live Classes</h4>
+                    <p>Attend interactive live classes with certified instructors. Ask questions in real-time and get instant feedback.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>📊 Progress Tracking</h4>
+                    <p>Monitor your learning progress with detailed analytics. Identify strengths and areas for improvement.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>🏆 Certifications</h4>
+                    <p>Earn recognized certifications upon course completion. Boost your professional profile and career prospects.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>👥 Community Support</h4>
+                    <p>Join a vibrant community of learners. Collaborate with peers and share knowledge through forums and groups.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>💰 Affordable Pricing</h4>
+                    <p>Quality education at affordable rates. Flexible payment plans and scholarship opportunities available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COURSES SECTION ===== -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Courses</h2>
+                <p>Choose from our comprehensive range of courses designed for all levels</p>
+            </div>
+
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-header">📐</div>
+                    <div class="course-content">
+                        <h3>Advanced Mathematics</h3>
+                        <p>Master calculus, algebra, and mathematical reasoning with hands-on problem-solving.</p>
+                        <div class="course-duration">
+                            <span>🕐 3 Months</span>
+                            <span>💰 $99</span>
+                        </div>
+                        <button class="enrollment-btn" onclick="enrollCourse('Advanced Mathematics')">Enroll</button>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-header">🧬</div>
+                    <div class="course-content">
+                        <h3>Biology Essentials</h3>
+                        <p>Explore the fascinating world of organisms, cells, and life processes with interactive labs.</p>
+                        <div class="course-duration">
+                            <span>🕐 3 Months</span>
+                            <span>💰 $89</span>
+                        </div>
+                        <button class="enrollment-btn" onclick="enrollCourse('Biology Essentials')">Enroll</button>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-header">💻</div>
+                    <div class="course-content">
+                        <h3>Web Development</h3>
+                        <p>Learn HTML, CSS, JavaScript, and modern frameworks to build professional websites and apps.</p>
+                        <div class="course-duration">
+                            <span>🕐 4 Months</span>
+                            <span>💰 $129</span>
+                        </div>
+                        <button class="enrollment-btn" onclick="enrollCourse('Web Development')">Enroll</button>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card">
+                    <div class="course-header">📚</div>
+                    <div class="course-content">
+                        <h3>English Literature</h3>
+                        <p>Dive into classic and contemporary literature. Improve writing and critical analysis skills.</p>
+                        <div class="course-duration">
+                            <span>🕐 2.5 Months</span>
+                            <span>💰 $79</span>
+                        </div>
+                        <button class="enrollment-btn" onclick="enrollCourse('English Literature')">Enroll</button>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="course-card">
+                    <div class="course-header">🌍</div>
+                    <div class="course-content">
+                        <h3>Geography & Geology</h3>
+                        <p>Understand Earth's physical and human geography with engaging multimedia content.</p>
+                        <div class="course-duration">
+                            <span>🕐 2 Months</span>
+                            <span>💰 $69</span>
+                        </div>
+                        <button class="enrollment-btn" onclick="enrollCourse('Geography & Geology')">Enroll</button>
+                    </div>
+                </div>
+
+                <!-- Course 6 -->
+                <div class="course-card">
+                    <div class="course-header">🎨</div>
+                    <div class="course-content">
+                        <h3>Digital Art & Design</h3>
+                        <p>Create stunning graphics and animations using industry-standard design software.</p>
+                        <div class="course-duration">
+                            <span>🕐 3 Months</span>
+                            <span>💰 $119</span>
+                        </div>
+                        <button class="enrollment-btn" onclick="enrollCourse('Digital Art & Design')">Enroll</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEACHERS SECTION ===== -->
+    <section id="teachers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Teachers</h2>
+                <p>Learn from experienced and passionate educators</p>
+            </div>
+
+            <div class="teachers-grid">
+                <!-- Teacher 1 -->
+                <div class="teacher-card">
+                    <div class="teacher-avatar">👨‍🏫</div>
+                    <div class="teacher-info">
+                        <h3>Dr. James Wilson</h3>
+                        <p>Mathematics</p>
+                        <div class="teacher-bio">PhD in Mathematics with 12 years of teaching experience. Specializes in advanced calculus and problem-solving.</div>
+                    </div>
+                </div>
+
+                <!-- Teacher 2 -->
+                <div class="teacher-card">
+                    <div class="teacher-avatar">👩‍🏫</div>
+                    <div class="teacher-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Biology</p>
+                        <div class="teacher-bio">Research scientist and educator. Passionate about making biology engaging through interactive experiments.</div>
+                    </div>
+                </div>
+
+                <!-- Teacher 3 -->
+                <div class="teacher-card">
+                    <div class="teacher-avatar">👨‍💼</div>
+                    <div class="teacher-info">
+                        <h3>Mr. Alex Kumar</h3>
+                        <p>Computer Science</p>
+                        <div class="teacher-bio">Tech enthusiast with industry experience. Teaches practical coding skills and software development best practices.</div>
+                    </div>
+                </div>
+
+                <!-- Teacher 4 -->
+                <div class="teacher-card">
+                    <div class="teacher-avatar">👩‍🎨</div>
+                    <div class="teacher-info">
+                        <h3>Ms. Emma Brown</h3>
+                        <p>Creative Arts</p>
+                        <div class="teacher-bio">Award-winning artist and designer. Inspires students to think creatively and express themselves through art.</div>
+                    </div>
+                </div>
+
+                <!-- Teacher 5 -->
+                <div class="teacher-card">
+                    <div class="teacher-avatar">👨‍🎓</div>
+                    <div class="teacher-info">
+                        <h3>Prof. Michael Davis</h3>
+                        <p>Literature</p>
+                        <div class="teacher-bio">English literature expert with a passion for classic and contemporary works. Makes learning engaging and fun.</div>
+                    </div>
+                </div>
+
+                <!-- Teacher 6 -->
+                <div class="teacher-card">
+                    <div class="teacher-avatar">👩‍🔬</div>
+                    <div class="teacher-info">
+                        <h3>Dr. Lisa Anderson</h3>
+                        <p>Chemistry</p>
+                        <div class="teacher-bio">Chemistry researcher and educator. Makes complex concepts simple through visual learning and experiments.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EVENTS SECTION ===== -->
+    <section id="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Stay updated with our latest school events and activities</p>
+            </div>
+
+            <div class="events-container">
+                <!-- Event 1 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-date-day">15</div>
+                        <div class="event-date-month">May</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Summer Science Fair</h3>
+                        <p><strong>Time:</strong> 10:00 AM - 4:00 PM</p>
+                        <p><strong>Location:</strong> Main Campus</p>
+                        <p>Join us for an exciting science fair where students showcase their innovative projects and experiments.</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-date-day">22</div>
+                        <div class="event-date-month">May</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Tech Workshop: AI & Machine Learning</h3>
+                        <p><strong>Time:</strong> 2:00 PM - 5:00 PM</p>
+                        <p><strong>Location:</strong> Computer Lab</p>
+                        <p>Learn about artificial intelligence and machine learning from industry experts in this hands-on workshop.</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-date-day">28</div>
+                        <div class="event-date-month">May</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Annual Sports Day</h3>
+                        <p><strong>Time:</strong> 9:00 AM - 6:00 PM</p>
+                        <p><strong>Location:</strong> Sports Complex</p>
+                        <p>Celebrate the spirit of sportsmanship with various games, races, and athletic competitions.</p>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-date-day">05</div>
+                        <div class="event-date-month">Jun</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Student Orientation & Registration</h3>
+                        <p><strong>Time:</strong> 11:00 AM - 3:00 PM</p>
+                        <p><strong>Location:</strong> Main Hall</p>
+                        <p>New students welcome! Register for courses and get acquainted with campus facilities and resources.</p>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="event-date-day">12</div>
+                        <div class="event-date-month">Jun</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Cultural Night 2026</h3>
+                        <p><strong>Time:</strong> 6:00 PM - 9:00 PM</p>
+                        <p><strong>Location:</strong> Auditorium</p>
+                        <p>Experience diverse cultures through performances, food, and interactive activities from around the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our school and courses</p>
+            </div>
+
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I enroll in a course?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Enrolling is simple! Browse our courses section, click the "Enroll" button on the course you're interested in, fill out the enrollment form, and complete the payment. You'll get instant access to all course materials.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is the duration of each course?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Course durations vary depending on the subject matter. Most courses range from 2 to 4 months, with classes typically held 3-4 times per week. You can check the specific duration for each course in the courses section.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer certificates upon completion?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Upon successful completion of any course, you'll receive a recognized certificate of completion. These certificates can boost your professional profile and are valued by employers and educational institutions.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is there a refund policy?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 100% refund within 7 days of enrollment if you're not satisfied with the course. After 7 days, a partial refund may be available depending on course progress. Contact our support team for details.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you provide support outside class hours?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer 24/7 online support through email, chat, and phone. Our dedicated support team is always ready to help you with any questions or technical issues you might encounter.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I switch courses after enrolling?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can switch courses within the first 14 days of enrollment without any penalty. Simply log in to your account, navigate to "My Courses," and select the new course you'd like to take.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are there any prerequisites for courses?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most courses are designed for all levels. However, some advanced courses may require previous knowledge. Each course page clearly lists any prerequisites. If you're unsure, our advisors can help you choose the right course.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How can I contact a teacher outside of class?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can reach out to teachers through the course forum or send them an email through the platform. Teachers typically respond within 24 hours. You can also schedule one-on-one sessions during their office hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="gallery" class="hidden">
+        <div class="container">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <p>Explore moments from our school community</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">📸 Campus Life</div>
+                <div class="gallery-item">🎓 Graduation</div>
+                <div class="gallery-item">⚽ Sports Events</div>
+                <div class="gallery-item">🎭 Cultural Night</div>
+                <div class="gallery-item">💡 Innovation Lab</div>
+                <div class="gallery-item">🎨 Art Exhibition</div>
+                <div class="gallery-item">📚 Library</div>
+                <div class="gallery-item">🏆 Awards</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have questions? We'd love to hear from you. Contact us anytime!</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>123 Education Lane<br>Knowledge City, KC 12345<br>United States</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>Main: +1 (555) 123-4567<br>Support: +1 (555) 789-0123<br>Toll Free: 1-800-ACADEMY</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>General: info@modernacademy.com<br>Support: support@modernacademy.com<br>Admissions: admissions@modernacademy.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-details">
+                            <h3>Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you for your message! We'll get back to you soon.
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <!-- Name Field -->
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Enter your full name"
+                                oninput="validateField(this)"
+                            >
+                            <span class="error-message">Please enter your full name</span>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="your.email@example.com"
+                                oninput="validateField(this)"
+                            >
+                            <span class="error-message">Please enter a valid email address</span>
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="(555) 123-4567"
+                                oninput="validateField(this)"
+                            >
+                            <span class="error-message">Please enter a valid phone number</span>
+                        </div>
+
+                        <!-- Subject Field -->
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input 
+                                type="text" 
+                                id="subject" 
+                                name="subject" 
+                                placeholder="What is this about?"
+                                oninput="validateField(this)"
+                            >
+                            <span class="error-message">Please enter a subject</span>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                placeholder="Type your message here..."
+                                oninput="validateField(this)"
+                            ></textarea>
+                            <span class="error-message">Please enter your message (minimum 10 characters)</span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ENROLLMENT MODAL ===== -->
+    <div id="enrollmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Quick Enrollment</h2>
+                <button class="close-btn" onclick="closeModal()">✕</button>
+            </div>
+            <form id="enrollmentForm" onsubmit="handleEnrollment(event)">
+                <div class="form-group">
+                    <label for="enrollCourse">Course</label>
+                    <input type="text" id="enrollCourse" name="course" readonly style="background-color: #f0f0f0;">
+                </div>
+                <div class="form-group">
+                    <label for="enrollName">Full Name *</label>
+                    <input type="text" id="enrollName" name="enrollName" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="enrollEmail">Email *</label>
+                    <input type="email" id="enrollEmail" name="enrollEmail" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="enrollPhone">Phone Number *</label>
+                    <input type="tel" id="enrollPhone" name="enrollPhone" placeholder="(555) 123-4567" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">Complete Enrollment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Twitter">𝕏</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="LinkedIn">in</a>
+                <a href="#" title="YouTube">▶</a>
+            </div>
+            <p>&copy; 2026 Modern Academy. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- ===== SCROLL TO TOP BUTTON ===== -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== SECTION NAVIGATION =====
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Close mobile menu if open
+            const nav = document.getElementById('nav');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        }
+
+        // ===== MOBILE MENU TOGGLE =====
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // ===== FORM VALIDATION =====
+        function validateField(field) {
+            const formGroup = field.parentElement;
+            const value = field.value.trim();
+            let isValid = true;
+
+            if (field.name === 'name') {
+                isValid = value.length >= 2;
+            } else if (field.name === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = emailRegex.test(value);
+            } else if (field.name === 'phone') {
+                const phoneRegex = /^[\d\s\-\(\)\.+]*$/;
+                isValid = value === '' || (value.length >= 10 && phoneRegex.test(value));
+            } else if (field.name === 'subject') {
+                isValid = value.length >= 3;
+            } else if (field.name === 'message') {
+                isValid = value.length >= 10;
+            }
+
+            if (isValid) {
+                formGroup.classList.remove('error');
+            } else {
+                formGroup.classList.add('error');
+            }
+
+            return isValid;
+        }
+
+        // ===== CONTACT FORM SUBMISSION =====
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Validate all fields
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input, textarea');
+            let allValid = true;
+
+            inputs.forEach(input => {
+                if (!validateField(input)) {
+                    allValid = false;
+                }
+            });
+
+            if (allValid) {
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.classList.add('show');
+
+                // Reset form
+                form.reset();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        // ===== ENROLLMENT FUNCTIONS =====
+        function enrollNow() {
+            document.getElementById('enrollCourse').value = 'General Inquiry';
+            openModal();
+        }
+
+        function enrollCourse(courseName) {
+            document.getElementById('enrollCourse').value = courseName;
+            openModal();
+        }
+
+        function openModal() {
+            document.getElementById('enrollmentModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('enrollmentModal').classList.remove('show');
+        }
+
+        function handleEnrollment(event) {
+            event.preventDefault();
+            const courseName = document.getElementById('enrollCourse').value;
+            const studentName = document.getElementById('enrollName').value;
+            alert(`✓ Thank you, ${studentName}!\n\nYou have been successfully enrolled in "${courseName}".\n\nWe'll send course details to your email soon!`);
+            closeModal();
+            document.getElementById('enrollmentForm').reset();
+        }
+
+        // ===== FAQ TOGGLE =====
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            // Close other FAQs
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                if (ans !== answer) {
+                    ans.classList.remove('show');
+                }
+            });
+
+            document.querySelectorAll('.faq-toggle').forEach(tgl => {
+                if (tgl !== toggle) {
+                    tgl.classList.remove('active');
+                }
+            });
+
+            // Toggle current FAQ
+            answer.classList.toggle('show');
+            toggle.classList.toggle('active');
+        }
+
+        // ===== SCROLL TO TOP =====
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const button = document.getElementById('scrollToTop');
+            if (window.scrollY > 300) {
+                button.classList.add('show');
+            } else {
+                button.classList.remove('show');
+            }
+        });
+
+        // ===== SEARCH FUNCTIONALITY =====
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm.trim() === '') {
+                alert('Please enter a search term');
+                return;
+            }
+
+            // Simple search logic
+            const courses = ['mathematics', 'biology', 'web development', 'english', 'geography', 'art'];
+            const sections = ['home', 'about', 'courses', 'teachers', 'events', 'faq', 'contact'];
+
+            const found = courses.find(c => c.includes(searchTerm));
+            const foundSection = sections.find(s => s.includes(searchTerm));
+
+            if (found) {
+                showSection('courses');
+                alert(`Found course: "${found}"`);
+            } else if (foundSection) {
+                showSection(foundSection);
+            } else {
+                alert(`No results found for "${searchTerm}". Try searching for a course name or section.`);
+            }
+        }
+
+        // Allow search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // ===== CLOSE MODAL WHEN CLICKING OUTSIDE =====
+        window.onclick = (event) => {
+            const modal = document.getElementById('enrollmentModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        // ===== INITIAL PAGE LOAD =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set home as active section
+            showSection('home');
+        });
+
+        // ===== SIMPLE WELCOME BUTTON FUNCTIONALITY =====
+        // This will be integrated into the home section
+        function welcomeClick() {
+            alert('🎓 Welcome to Modern Academy!\n\nWe\'re excited to have you explore our courses and learning opportunities. Start your educational journey with us today!\n\nHappy Learning! 📚');
+        }
+    </script>
+</body>
+</html>
